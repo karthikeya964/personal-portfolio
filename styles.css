@@ -1,69 +1,369 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
+/* General Body Styles */
+body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-  }
-  
-  nav ul {
-    list-style-type: none;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 1s ease-out; /* Fade in effect for entire page */
+}
+
+/* Fade-in effect for the page */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Home Section Styling */
+/* Home Section Styling */
+#home {
+    height: 100vh; /* Full height of the viewport */
     display: flex;
     justify-content: center;
-    background-color: #333;
-    padding: 10px;
-  }
-  
-  nav ul li {
-    margin: 0 15px;
-  }
-  
-  nav ul li a {
+    align-items: center;
+    background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00);
+    background-size: 300% 300%;
+    animation: gradientBackground 6s ease infinite; /* Animated gradient */
     color: white;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Keyframes for animated gradient background */
+  @keyframes gradientBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Hero content (name and description) */
+  .hero-content {
+    opacity: 0;
+    animation: fadeInUp 1s forwards 0.5s;
+  }
+  
+  /* Large name styling with typewriter effect */
+  .hero-name {
+    font-size: 5em; /* Large font size */
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(30) 1s 1 normal forwards, blink 0.75s step-end infinite;
+  }
+  
+  /* Typewriter Effect */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  /* Hero content text (description) */
+  .hero-content p {
+    font-size: 1.5em;
+    color: #fff;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 1s;
+  }
+  
+  /* Fade-In Animation for Section Content */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+/* Navigation Bar Styling */
+nav {
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    animation: slideDown 0.5s ease-out;
+}
+
+/* Slide-down effect for navbar */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Navbar container */
+nav .container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo styles */
+nav .logo {
+    color: white;
+    font-size: 1.5em;
     text-decoration: none;
     font-weight: bold;
-  }
-  
-  section {
+}
+
+/* Navbar links */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    opacity: 0;
+    animation: fadeInNav 1s forwards 0.5s;
+}
+
+@keyframes fadeInNav {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar links hover effect */
+nav ul li a:hover {
+    transform: scale(1.1);
+    color: #f4f4f4;
+    text-decoration: underline;
+}
+
+/* Hamburger menu styles (Mobile) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+.hamburger .bar {
+    height: 4px;
+    width: 100%;
+    background-color: white;
+}
+
+/* Mobile menu: Displayed at max-width 768px */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        padding: 10px 0;
+        animation: slideInNav 0.3s ease-out;
+    }
+
+    /* Slide-in effect for mobile menu */
+    @keyframes slideInNav {
+        from {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Section Styling */
+section {
     padding: 50px 20px;
     max-width: 1200px;
     margin: 0 auto;
-  }
-  
-  h1, h2, h3 {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards;
+}
+
+/* Headings styling */
+h1, h2, h3 {
     color: #333;
-  }
-  
-  .project {
+    animation: fadeInText 2s ease-out;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Project section */
+.project {
     margin-bottom: 30px;
-  }
-  
-  footer {
+}
+
+/* Contact Section List */
+ul {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    transform: scale(0);
+    transition: transform 0.3s ease-out;
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #555;
+}
+
+.scroll-to-top-btn.show {
+    transform: scale(1);
+}
+
+/* Footer Styling */
+footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
+    position: relative;
+    margin-top: 50px;
+    animation: fadeIn 1s ease-out;
+}
 
-  @media (max-width: 768px) {
-    nav ul {
-      flex-direction: column;
-      align-items: center;
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
     }
-  
+
     section {
-      padding: 20px 10px;
+        padding: 40px 15px;
     }
-  }
-  
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .hero-name {
+        font-size: 3em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .project {
+        padding: 15px;
+    }
+}

@@ -3,31 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name | Portfolio</title>
+  <title>D Karthikeya | Portfolio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- Navigation Bar -->
   <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about me">About Me</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="container">
+      <a href="#home" class="logo">D karthikeya </a> <!-- Add logo text or image -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
   </nav>
 
   <!-- Home Section -->
   <section id="home">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Hello Folks</p>
+    <div class="hero-content">
+      <h1 class="hero-name">D Karthikeya</h1>
+      <p>Welcome to my portfolio website</p>
+    </div>
   </section>
-
+  
   <!-- About Me Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Hello my name is D karthikeya Iam from hyderabad I completed my bachelors deegre in Institute of Aeronautical engineering with specialization in information technology and secured 8.04 cgpa regarding my projects during my final semesters i worked on few projects some of them are  "Intelligent Chatbot for Customer Support" ,IoT-based Smart Agriculture System and Iam proficient with python ,java,sql,and front end web developmet </p>
+    <p>Hello, my name is D Karthikeya. I am from Hyderabad. I completed my bachelor's degree in Information Technology from the Institute of Aeronautical Engineering, securing an 8.04 CGPA. During my final semesters, I worked on several projects, including "Intelligent Chatbot for Customer Support" and "IoT-based Smart Agriculture System." I am proficient in Python, Java, SQL, and front-end web technologies.</p>
   </section>
 
   <!-- Projects Section -->
@@ -35,28 +45,61 @@
     <h2>My Projects</h2>
     <div class="project">
       <h3>Intelligent Chatbot for Customer Support</h3>
-      <p>develop a chatbot system using Natural Language Processing (NLP) to handle customer inquiries in real-time. The bot can integrate with messaging platforms such as websites or WhatsApp, enabling automated responses for a wide range of customer requests. It can detect user intent (e.g., product inquiry or order status) and provide tailored responses by leveraging machine learning models like BERT or GPT-3. Additionally, the bot can be designed to perform sentiment analysis to determine if a user is upset or frustrated and escalate those interactions to a human representative. It would also include a backend analytics dashboard for businesses to monitor bot performance, user engagement, and commonly asked questions. Technologies involved could include Python, TensorFlow, Hugging Face Transformers</p>
+      <p>Developed a chatbot system using Natural Language Processing (NLP) to handle customer inquiries in real-time. It integrates with messaging platforms such as websites or WhatsApp, providing automated responses for a wide range of customer requests. The bot detects user intent (e.g., product inquiry or order status) and provides tailored responses using machine learning models like BERT or GPT-3. It also performs sentiment analysis to detect frustration and escalate interactions to human support. Technologies used include Python, TensorFlow, and Hugging Face Transformers.</p>
     </div>
     <div class="project">
-      <h3> IoT-based Smart Agriculture System</h3>
-      <p>aimed at improving farming efficiency through automation and data-driven insights. By deploying sensors to monitor soil moisture, temperature, humidity, and pH levels, the system can trigger automatic irrigation and generate data that helps farmers make informed decisions. A key feature would be integrating machine learning algorithms to predict crop growth, assess irrigation needs, and prevent resource waste. This system can be linked to a mobile application that alerts users about critical conditions and allows remote control of the irrigation process. Cloud platforms like Firebase can store sensor data, while tools such as Node-RED and TensorFlow can be used for data analysis and predictive analytics.</p>
+      <h3>IoT-based Smart Agriculture System</h3>
+      <p>Aimed at improving farming efficiency through automation and data-driven insights. The system uses sensors to monitor soil moisture, temperature, humidity, and pH levels, triggering automatic irrigation. Machine learning algorithms predict crop growth and assess irrigation needs. The system is connected to a mobile app that alerts farmers about critical conditions. Technologies include IoT sensors, Node-RED, TensorFlow, and Firebase for cloud data storage.</p>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>If you’d like to get in touch, feel free to reach out through my email or social media.</p>
+    <p>If you'd like to get in touch, feel free to reach out through my email or social media:</p>
     <ul>
-      <li>Email:dkarthikeya999@gmail.com</li>
+      <li>Email: dkarthikeya999@gmail.com</li>
       <li><a href="https://linkedin.com/in/yourprofile">LinkedIn</a></li>
       <li><a href="https://github.com/karthikeya964">GitHub</a></li>
     </ul>
   </section>
 
+  <!-- Scroll to Top Button (added for functionality) -->
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">&#8679;</button>
+
   <footer>
-    <p>© 2025 D karthikeya</p>
+    <p>© 2025 D Karthikeya</p>
   </footer>
+
+  <script>
+    // Smooth scrolling functionality
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Toggle navigation menu on mobile
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.querySelector('nav ul').classList.toggle('show');
+    });
+
+    // Scroll to Top Button functionality
+    let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollToTopBtn.style.display = "block";
+      } else {
+        scrollToTopBtn.style.display = "none";
+      }
+    };
+
+    scrollToTopBtn.addEventListener("click", function() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 
 </body>
 </html>
